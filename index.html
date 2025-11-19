@@ -15,11 +15,12 @@
         .chart-container {
             position: relative;
             width: 100%;
-            max-width: 500px;
+            /* UX Enhancement: Use relative and min/max heights for better mobile scaling */
+            max-height: 50vh; 
+            min-height: 250px; 
+            height: 300px; /* Default height for general mobile/small tablet view */
             margin-left: auto;
             margin-right: auto;
-            height: 320px;
-            max-height: 400px;
         }
         @media (min-width: 768px) {
             .chart-container {
@@ -49,10 +50,16 @@
             box-shadow: 0 4px 6px rgba(0, 174, 239, 0.1);
         }
         .flow-arrow {
-            font-size: 2rem;
+            /* UX Enhancement: Reduced arrow size for better mobile flow aesthetics */
+            font-size: 1.5rem; 
             line-height: 1;
             color: #00AEEF;
             margin: 0.25rem 0;
+        }
+        @media (min-width: 768px) {
+            .flow-arrow {
+                font-size: 2rem; /* Restore larger size for desktop */
+            }
         }
         .icon-check {
             font-size: 2rem;
@@ -74,23 +81,23 @@
         </nav>
     </header>
 
-    <main class="container mx-auto p-6 md:p-10">
+    <main class="container mx-auto px-4 py-6 md:p-10">
 
         <section id="hero-stats" class="mb-12">
             <h2 class="text-3xl font-bold text-center text-gray-900 mb-8">Customer-Driven Impact at Scale</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="stat-card text-center">
-                    <div class="text-6xl font-extrabold text-[#00AEEF]">18+</div>
+                    <div class="text-5xl md:text-6xl font-extrabold text-[#00AEEF]">18+</div>
                     <div class="text-xl font-semibold text-gray-700 mt-2">Years of Experience</div>
                     <p class="text-gray-500 mt-2">Leading product strategy and digital transformation.</p>
                 </div>
                 <div class="stat-card text-center">
-                    <div class="text-6xl font-extrabold text-[#F7941E]">3M+</div>
+                    <div class="text-5xl md:text-6xl font-extrabold text-[#F7941E]">3M+</div>
                     <div class="text-xl font-semibold text-gray-700 mt-2">Customers Impacted</div>
                     <p class="text-gray-500 mt-2">Delivering enterprise-scale releases and enhancements.</p>
                 </div>
                 <div class="stat-card text-center">
-                    <div class="text-6xl font-extrabold text-[#8DC63F]">92%</div>
+                    <div class="text-5xl md:text-6xl font-extrabold text-[#8DC63F]">92%</div>
                     <div class="text-xl font-semibold text-gray-700 mt-2">Efficiency Gain</div>
                     <p class="text-gray-500 mt-2">From automating complex operational workflows.</p>
                 </div>
@@ -151,12 +158,12 @@
                     <h3 class="text-2xl font-bold text-gray-900 mb-4">Quality & Assurance Scores</h3>
                     <div class="grid grid-cols-2 gap-4 w-full">
                         <div class="p-4 bg-gray-50 rounded-lg">
-                            <div class="text-5xl font-extrabold text-[#8DC63F]">99%</div>
+                            <div class="text-4xl md:text-5xl font-extrabold text-[#8DC63F]">99%</div>
                             <p class="text-lg font-semibold text-gray-700 mt-1">UAT Success</p>
                             <p class="text-xs text-gray-500">On First-Round Sign-Off</p>
                         </div>
                         <div class="p-4 bg-gray-50 rounded-lg">
-                            <div class="text-5xl font-extrabold text-[#00AEEF]">100%</div>
+                            <div class="text-4xl md:text-5xl font-extrabold text-[#00AEEF]">100%</div>
                             <p class="text-lg font-semibold text-gray-700 mt-1">Pilot Success</p>
                             <p class="text-xs text-gray-500">Employee/Staging Testing</p>
                         </div>
@@ -242,7 +249,7 @@
                 <div class="stat-card">
                     <h3 class="text-2xl font-bold text-gray-900 mb-3">Outcome: Reduced Customer Friction</h3>
                     <p class="text-gray-600 mb-6">
-                        This customer-centric process wasn't just theoretical. By listening to pain points around funding, the team was able to prioritize changes that led to a <strong>~40% reduction in funding-related complaints</strong>.
+                        This customer-centric process wasn't just theoretical. By listening to pain points around funding, the team was able to prioritize changes that led to a **~40% reduction in funding-related complaints**.
                     </p>
                     <div class="chart-container" style="height: 300px; max-height: 350px;">
                         <canvas id="complaintsChart"></canvas>
