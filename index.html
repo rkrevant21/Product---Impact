@@ -3,110 +3,725 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raja Kolluru - Product and Ops Strategy Leader</title>
-    <link rel="stylesheet" href="styles.css"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Raja Kolluru - Product Impact Infographic (Dark Mode)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* --- DARK MODE BASE STYLES --- */
+        body {
+            /* Dark Background */
+            font-family: 'Inter', sans-serif;
+            background-color: #1f2937; /* Tailwind Gray-800 equivalent for base */
+            color: #f3f4f6; /* Tailwind Gray-100 for text */
+        }
+        .stat-card {
+            /* Slightly lighter card background */
+            background-color: #374151; 
+            border-radius: 0.75rem;
+            padding: 2rem;
+            /* Removed shadow for cleaner dark mode look */
+            box-shadow: none; 
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+        }
+        .stat-card:hover {
+            box-shadow: 0 0 20px rgba(0, 174, 239, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        /* --- TIMELINE STYLES (CONCEPT 2) --- */
+        .timeline-container {
+            position: relative;
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 15px; /* Adjust position relative to content */
+            width: 2px;
+            height: 100%;
+            background: #4b5563; /* Dark gray line */
+            z-index: 10;
+        }
+        .timeline-section {
+            position: relative;
+            padding-left: 50px; /* Space for the line and dot */
+            margin-bottom: 3rem;
+        }
+        .timeline-section::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 15px;
+            height: 15px;
+            background: #00AEEF; /* Blue dot marker */
+            border-radius: 50%;
+            border: 3px solid #1f2937; /* Match body background */
+            z-index: 20;
+        }
+        
+        /* --- CHART STYLES --- */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-height: 50vh; 
+            min-height: 250px; 
+            height: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+                max-height: 450px;
+            }
+        }
+        .flow-step {
+            background-color: #374151; /* Match card background */
+            border: 2px solid #00AEEF;
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            text-align: center;
+            font-weight: 500;
+            color: #f3f4f6;
+            box-shadow: 0 4px 6px rgba(0, 174, 239, 0.1);
+        }
+        .flow-arrow {
+            font-size: 1.5rem; 
+            line-height: 1;
+            color: #00AEEF;
+            margin: 0.25rem 0;
+        }
+        @media (min-width: 768px) {
+            .flow-arrow {
+                font-size: 2rem;
+            }
+        }
+        .icon-check {
+            font-size: 2rem;
+            line-height: 1;
+        }
+    </style>
 </head>
-<body>
-
-    <header class="hero-section">
-        <div class="header-content">
-            <div class="text-content">
-                <h1>Raja Kolluru</h1>
-                <h2>Product and Ops Strategy Leader</h2>
-                <p>Innovating to reduce friction & grow balances in deposits</p>
+<body class="text-gray-100"> <header class="bg-[#1f2937] shadow-xl sticky top-0 z-50 border-b border-gray-700">
+        <nav class="container mx-auto px-6 py-2 md:py-4 flex justify-between items-center">
+            <div>
+                <h1 class="text-2xl font-bold text-white">Raja Kolluru</h1>
+                <p class="text-sm md:text-md text-[#00AEEF] font-medium">Senior Product & Strategy Leader</p>
             </div>
-            <div class="image-container">
-                <img src="https://ui-avatars.com/api/?name=Raja+Kolluru&background=fff&color=007bff&size=150&bold=true" 
-                     alt="Raja Kolluru Profile Placeholder">
-            </div>
-        </div>
+            <a href="https://linkedin.com/in/rajakolluru" target="_blank" rel="noopener noreferrer" class="bg-[#00AEEF] text-white px-3 py-1 text-sm md:px-5 md:py-2 rounded-lg font-medium hover:bg-opacity-80 transition-colors">
+                View LinkedIn
+            </a>
+        </nav>
     </header>
 
-    <main>
-        <section class="impact-section">
-            <h3 class="section-title">Driving Customer Impact</h3>
-            <div class="impact-cards">
-                <div class="card">
-                    <span class="value">92%</span>
-                    <p class="metric">operational efficiency</p>
-                    <p class="caption">2022 for stop pay payments</p>
+    <main class="container mx-auto px-4 py-6 md:p-10 timeline-container">
+
+        <section id="hero-stats" class="timeline-section">
+            <h2 class="text-3xl font-bold text-white mb-8">Customer-Driven Impact at Scale</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="stat-card text-center">
+                    <div class="text-5xl md:text-6xl font-extrabold text-[#00AEEF]">18+</div>
+                    <div class="text-xl font-semibold text-gray-100 mt-2">Years of Experience</div>
+                    <p class="text-gray-400 mt-2">Leading product strategy and digital transformation.</p>
                 </div>
-                <div class="card">
-                    <span class="value">70%</span>
-                    <p class="metric">increase in instant verifications</p>
-                    <p class="caption">Redesign External Account Management</p>
+                <div class="stat-card text-center">
+                    <div class="text-5xl md:text-6xl font-extrabold text-[#F7941E]">3M+</div>
+                    <div class="text-xl font-semibold text-gray-100 mt-2">Customers Impacted</div>
+                    <p class="text-gray-400 mt-2">Delivering enterprise-scale releases and enhancements.</p>
                 </div>
-                <div class="card">
-                    <span class="value">100%</span>
-                    <p class="metric">instant adoption of self service funding</p>
-                    <p class="caption">Aug 2024 since-now</p>
+                <div class="stat-card text-center">
+                    <div class="text-5xl md:text-6xl font-extrabold text-[#8DC63F]">92%</div>
+                    <div class="text-xl font-semibold text-gray-100 mt-2">Efficiency Gain</div>
+                    <p class="text-gray-400 mt-2">From automating complex operational workflows.</p>
                 </div>
             </div>
         </section>
 
-        <section class="competencies-section">
-            <h3 class="section-title">Core Competencies: Product Management Mastery</h3>
-            <div class="competency-grid">
-                <div class="competency-item">
-                    <i class="fas fa-search"></i>
-                    <p>Discovery</p>
-                </div>
-                <div class="competency-item">
-                    <i class="fas fa-sitemap"></i>
-                    <p>Product Strategy</p>
-                </div>
-                <div class="competency-item">
-                    <i class="fas fa-road"></i>
-                    <p>RoadMap</p>
-                </div>
-                <div class="competency-item">
-                    <i class="fas fa-users"></i>
-                    <p>Stakeholder Influence</p>
-                </div>
-                <div class="competency-item">
-                    <i class="fas fa-chart-bar"></i>
-                    <p>Data Driven insights</p>
-                </div>
-                <div class="competency-item">
-                    <i class="fas fa-cogs"></i>
-                    <p>Delivery & Execution</p>
-                </div>
-                </div>
-        </section>
-
-        <section class="casestudy-section">
-            <h3 class="section-title">Case Studies: Scaling Innovation</h3>
-            <div class="casestudy-grid">
-                <div class="casestudy-item">
-                    <i class="fas fa-clock"></i>
-                    <h4>ACH: Stop Payment Automation</h4>
-                    <p>Faction identified from Back Office fresh feedback on time in stoppoints from AVP 24/5 day since. since 2022</p>
-                    <a href="#" class="read-more">Read More ></a>
-                </div>
-                <div class="casestudy-item">
-                    <i class="fas fa-handshake"></i>
-                    <h4>Redesign External Account Mgmt</h4>
-                    <p>Instant account verifications increase from 30% to 20%. 20% growth in deposits and 50% reduction in legacy more deficefl irsk since</p>
-                    <a href="#" class="read-more">Read More ></a>
-                </div>
+        <section id="competencies" class="timeline-section stat-card">
+            <h2 class="text-3xl font-bold text-white mb-4">Core Leadership Competencies</h2>
+            <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-8">
+                A balanced skill set focused on bridging customer needs with business strategy and technical execution, from initial discovery to final delivery.
+            </p>
+            <div class="chart-container">
+                <canvas id="competenciesChart"></canvas>
             </div>
         </section>
 
-        <section class="footer-section">
-            <div class="compliance">
-                <i class="fas fa-shield-alt"></i>
-                <h3 class="section-title">Compliance & Risk Mastery</h3>
-                <p>In a heavily regulatered environment, effective product leadership means integrating risk mitigation and compliance into the design process—not fixing it later.</p>
-            </div>
-            <div class="connect">
-                <i class="fas fa-trophy"></i>
-                <h3 class="section-title">Let's Build What's Next</h3>
-                <p>3-time President's Award nominee</p>
-                <h4>Let's Connect</h4>
-                <a href="mailto:rkrevant21@gmail.com">rkrevant21@gmail.com</a>
+        <section id="risk-compliance" class="timeline-section">
+            <h2 class="text-3xl font-bold text-white mb-8">Compliance & Risk Mastery</h2>
+            <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-10">
+                In a heavily regulated environment, effective product leadership means integrating risk mitigation and compliance into the design process—not fixing it later.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="stat-card flex flex-col items-center justify-center p-6 text-center">
+                    <div class="text-7xl font-extrabold text-[#8DC63F]">✓</div>
+                    <div class="text-2xl font-bold text-white mt-2">Zero Critical Issues</div>
+                    <p class="text-gray-400 mt-3 max-w-xs mx-auto">
+                        Track record of successful product launches without a single regulatory or critical P0/P1 system-down bug.
+                    </p>
+                    <div class="flex space-x-4 mt-6">
+                        <span class="bg-[#8DC63F] text-white rounded-full p-2 icon-check" title="Regulatory Approval">✅</span>
+                        <span class="bg-[#8DC63F] text-white rounded-full p-2 icon-check" title="Audit Trail Integrity">✅</span>
+                        <span class="bg-[#8DC63F] text-white rounded-full p-2 icon-check" title="Risk Score Maintained">✅</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <h3 class="text-2xl font-bold text-white mb-3 text-center">Automated Compliance Integration</h3>
+                    <p class="text-gray-400 mb-6 text-center">
+                        Percentage of mandatory compliance controls (disclosures, ownership verification) that were **automated** and built directly into the digital product flow.
+                    </p>
+                    <div class="chart-container" style="height: 300px; max-height: 350px;">
+                        <canvas id="complianceGaugeChart"></canvas>
+                    </div>
+                </div>
+
             </div>
         </section>
+
+        <section id="execution-predictability" class="timeline-section">
+            <h2 class="text-3xl font-bold text-white mb-8">Predictable Delivery Execution</h2>
+            <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-10">
+                Execution excellence is measured by predictability and quality assurance. My focus is on aligning scope, resources, and timelines.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="stat-card flex flex-col items-center justify-center p-6 text-center">
+                    <h3 class="text-2xl font-bold text-white mb-4">Quality & Assurance Scores</h3>
+                    <div class="grid grid-cols-2 gap-4 w-full">
+                        <div class="p-4 bg-gray-700 rounded-lg">
+                            <div class="text-4xl md:text-5xl font-extrabold text-[#8DC63F]">99%</div>
+                            <p class="text-lg font-semibold text-gray-100 mt-1">UAT Success</p>
+                            <p class="text-xs text-gray-400">On First-Round Sign-Off</p>
+                        </div>
+                        <div class="p-4 bg-gray-700 rounded-lg">
+                            <div class="text-4xl md:text-5xl font-extrabold text-[#00AEEF]">100%</div>
+                            <p class="text-lg font-semibold text-gray-100 mt-1">Pilot Success</p>
+                            <p class="text-xs text-gray-400">Employee/Staging Testing</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-400 mt-4 italic">
+                        *Post-release quality averaged only 5 high-severity bugs (no critical system-down issues).
+                    </p>
+                </div>
+
+                <div class="stat-card">
+                    <h3 class="text-2xl font-bold text-white mb-3 text-center">Scope Stability & Delivery Accuracy</h3>
+                    <p class="text-gray-400 mb-6 text-center">
+                        Comparison of initially planned scope vs. actual delivered scope across major product releases.
+                    </p>
+                    <div class="chart-container" style="height: 300px; max-height: 350px;">
+                        <canvas id="deliveryPredictabilityChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="deep-dive" class="timeline-section">
+            <h2 class="text-3xl font-bold text-white mb-8">Deep Dive: Digital Experience Transformation</h2>
+            <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-10">
+                Led initiatives to modernize legacy systems, replacing high-friction manual processes with seamless digital experiences.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <div class="stat-card">
+                    <h3 class="text-2xl font-bold text-white mb-3">Funding Platform Modernization</h3>
+                    <p class="text-gray-400 mb-6">
+                        Transformed CD funding from a 100% manual process into a digital self-service, driving **~30% adoption**.
+                    </p>
+                    <div class="chart-container" style="height: 280px; max-height: 350px;">
+                        <canvas id="fundingChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <h3 class="text-2xl font-bold text-white mb-3">Onboarding & Verification Impact</h3>
+                    <p class="text-gray-400 mb-6">
+                        Shifted strategy from high-friction micro-deposits to instant verification, improving the entire onboarding funnel.
+                    </p>
+                    <div class="chart-container" style="height: 280px; max-height: 350px;">
+                        <canvas id="verificationChart"></canvas>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        
+        <section id="voc-loop" class="timeline-section">
+            <h2 class="text-3xl font-bold text-white mb-8">Strategy in Action: Multi-Channel Discovery Funnel</h2>
+            <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-10">
+                My roadmap prioritization is data-driven, leveraging a broad set of inputs to ensure every solution addresses a real user friction point.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+                <div class="stat-card p-6">
+                    <h3 class="text-2xl font-bold text-white mb-6 text-center">Discovery & Prioritization Process</h3>
+                    <div class="flex flex-col items-center text-sm">
+                        <div class="flow-step w-3/4 bg-gray-700 border-[#00AEEF]">
+                            <strong>Discovery Intake</strong>
+                            <ul class="text-sm list-disc list-inside mt-1 space-y-0.5 text-left mx-auto max-w-fit text-gray-200">
+                                <li>VoC & Complaint Data</li>
+                                <li>Call Center/Agent Feedback</li>
+                                <li>Regulatory Changes</li>
+                                <li>Production Issues & Health</li>
+                                <li>Marketing Recommendations</li>
+                            </ul>
+                        </div>
+                        <div class="flow-arrow">▼</div>
+                        <div class="flow-step w-3/4">Qualitative Analysis (Call Listening & Deep Dives)</div>
+                        <div class="flow-arrow">▼</div>
+                        <div class="flow-step w-3/4">Data Synthesis & Prioritization (Impact vs. Effort)</div>
+                        <div class="flow-arrow">▼</div>
+                        <div class="flow-step w-3/4">UX/Product Backlog Enhancement</div>
+                        <div class="flow-arrow">▼</div>
+                        <div class="flow-step w-3/4 bg-[#8DC63F] border-[#8DC63F] text-white">Launch, Measure, & Iterate</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <h3 class="text-2xl font-bold text-white mb-3">Outcome: Reduced Customer Friction</h3>
+                    <p class="text-gray-400 mb-6">
+                        Prioritized changes led to a **~40% reduction in funding-related complaints**.
+                    </p>
+                    <div class="chart-container" style="height: 300px; max-height: 350px;">
+                        <canvas id="complaintsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
+
+    <footer class="bg-gray-900 text-gray-300 mt-12 py-10">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-2xl font-bold text-white mb-4">Let's Connect</h3>
+            <p class="mb-6">I am passionate about solving complex problems and building products customers love.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="https://linkedin.com/in/rajakolluru" target="_blank" rel="noopener noreferrer" class="text-lg text-[#00AEEF] hover:text-white transition-colors">
+                    linkedin.com/in/rajakolluru
+                </a>
+                <a href="mailto:rkrevant21@gmail.com" class="text-lg text-[#00AEEF] hover:text-white transition-colors">
+                    rkrevant21@gmail.com
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const palette = {
+                blue: '#00AEEF',
+                orange: '#F7941E',
+                green: '#8DC63F',
+                red: '#ED1C24',
+                yellow: '#FBB03B',
+                dark: '#f3f4f6', // Changed to light color for text/axes in dark mode
+                lightBlue: 'rgba(0, 174, 239, 0.4)', // Darker light blue for fill contrast
+                gray: '#4b5563' // Darker gray for inactive elements
+            };
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                } else {
+                    return label;
+                }
+            };
+
+            const chartDefaultOptions = {
+                maintainAspectRatio: false,
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: { size: 12 },
+                            color: palette.dark // Use light color for legend text
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        backgroundColor: '#000',
+                        titleFont: { size: 14, weight: 'bold' },
+                        bodyFont: { size: 12 },
+                        padding: 10,
+                        cornerRadius: 4,
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            };
+
+            // ------------------------------------------------
+            // 1. Competencies Radar Chart
+            // ------------------------------------------------
+            if (document.getElementById('competenciesChart')) {
+                new Chart(document.getElementById('competenciesChart'), {
+                    type: 'radar',
+                    data: {
+                        labels: [
+                            ['Customer', 'Discovery'],
+                            'Product Strategy',
+                            ['VoC & Data', 'Insights'],
+                            ['Stakeholder', 'Influence'],
+                            ['Delivery', 'Execution'],
+                            ['Risk &', 'Compliance']
+                        ],
+                        datasets: [{
+                            label: 'Competency Level',
+                            data: [8, 8, 8, 8, 8, 8], 
+                            backgroundColor: palette.lightBlue,
+                            borderColor: palette.blue,
+                            borderWidth: 2,
+                            pointBackgroundColor: palette.blue,
+                            pointRadius: 4
+                        }]
+                    },
+                    options: {
+                        ...chartDefaultOptions,
+                        scales: {
+                            r: {
+                                // Dark Mode Chart Fixes:
+                                angleLines: { color: 'rgba(255, 255, 255, 0.15)' }, 
+                                grid: { color: 'rgba(255, 255, 255, 0.15)' }, 
+                                pointLabels: {
+                                    font: { size: 13, weight: '500' },
+                                    color: palette.dark 
+                                },
+                                ticks: {
+                                    backdropColor: 'rgba(55, 65, 81, 0.9)', // Match card background
+                                    color: palette.dark,
+                                    stepSize: 1,
+                                    max: 10,
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            const pieDoughnutOptions = {
+                ...chartDefaultOptions,
+                scales: {},
+                plugins: {
+                    ...chartDefaultOptions.plugins,
+                    tooltip: {
+                         ...chartDefaultOptions.plugins.tooltip,
+                        callbacks: {
+                            ...chartDefaultOptions.plugins.tooltip.callbacks,
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed !== null) {
+                                    label += context.parsed + '%';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            };
+
+            // ------------------------------------------------
+            // 2. Funding Chart (Doughnut)
+            // ------------------------------------------------
+            if (document.getElementById('fundingChart')) {
+                new Chart(document.getElementById('fundingChart'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: [
+                            ['Digital', 'Self-Service'],
+                            ['Phone-Only', '(Legacy)']
+                        ],
+                        datasets: [{
+                            label: 'Funding Channel Adoption',
+                            data: [30, 70],
+                            backgroundColor: [palette.blue, palette.orange],
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: pieDoughnutOptions
+                });
+            }
+
+            const barChartScales = {
+                y: {
+                    beginAtZero: true,
+                    // Dark Mode Chart Fixes:
+                    grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                    ticks: { color: palette.dark },
+                    title: { display: true, text: 'Points / %', color: palette.dark }
+                },
+                x: {
+                    // Dark Mode Chart Fixes:
+                    grid: { display: false },
+                    ticks: { color: palette.dark }
+                }
+            };
+
+            // ------------------------------------------------
+            // 3. Verification Chart (Bar - Onboarding & Fraud)
+            // ------------------------------------------------
+            if (document.getElementById('verificationChart')) {
+                new Chart(document.getElementById('verificationChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: [
+                            ['Onboarding', 'Completion'],
+                            ['Instant', 'Adoption'],
+                            ['Fraud', 'Incidence']
+                        ],
+                        datasets: [
+                            {
+                                label: 'Legacy (Micro-Deposit)',
+                                data: [100, 0, 100],
+                                backgroundColor: palette.orange,
+                                borderColor: palette.orange,
+                                borderWidth: 1
+                            },
+                            {
+                                label: 'New (Instant Verify)',
+                                data: [115, 100, 70],
+                                backgroundColor: palette.blue,
+                                borderColor: palette.blue,
+                                borderWidth: 1
+                            }
+                        ]
+                    },
+                    options: {
+                        ...chartDefaultOptions,
+                        scales: barChartScales,
+                        plugins: {
+                            ...chartDefaultOptions.plugins,
+                            tooltip: {
+                                ...chartDefaultOptions.plugins.tooltip,
+                                callbacks: {
+                                    ...chartDefaultOptions.plugins.tooltip.callbacks,
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) { label += ': '; }
+                                        let value = context.parsed.y;
+                                        if (context.dataIndex === 0 && context.datasetIndex === 1) label += `+${value - 100}% Completion`;
+                                        else if (context.dataIndex === 1 && context.datasetIndex === 1) label += `100% Adoption (New Channel)`;
+                                        else if (context.dataIndex === 2 && context.datasetIndex === 1) label += `-${100 - value}% Reduction`;
+                                        else label += value;
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // ------------------------------------------------
+            // 4. Complaints Chart (Bar - VOC Impact)
+            // ------------------------------------------------
+            if (document.getElementById('complaintsChart')) {
+                new Chart(document.getElementById('complaintsChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: [['Funding', 'Complaints']],
+                        datasets: [
+                            {
+                                label: 'Before VoC Changes',
+                                data: [100],
+                                backgroundColor: palette.red,
+                            },
+                            {
+                                label: 'After VoC Changes',
+                                data: [60],
+                                backgroundColor: palette.green,
+                            }
+                        ]
+                    },
+                    options: {
+                        ...chartDefaultOptions,
+                        scales: barChartScales,
+                        plugins: {
+                            ...chartDefaultOptions.plugins,
+                            tooltip: {
+                                ...chartDefaultOptions.plugins.tooltip,
+                                callbacks: {
+                                    ...chartDefaultOptions.plugins.tooltip.callbacks,
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) { label += ': '; }
+                                        if (context.datasetIndex === 1) {
+                                            label += `~40% Reduction`;
+                                        } else {
+                                            label += `Baseline`;
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // ------------------------------------------------
+            // 5. Custom Compliance Gauge Chart
+            // ------------------------------------------------
+            const complianceData = 95; 
+            if (document.getElementById('complianceGaugeChart')) {
+                const gaugeData = {
+                    datasets: [{
+                        data: [complianceData, 100 - complianceData],
+                        backgroundColor: [palette.green, palette.gray],
+                        borderWidth: 0,
+                        circumference: 180,
+                        rotation: 270,
+                        cutout: '70%',
+                        borderRadius: 8
+                    }]
+                };
+
+                const gaugeText = {
+                    id: 'gaugeText',
+                    beforeDraw(chart) {
+                        const { ctx, chartArea: { width, height } } = chart;
+                        ctx.save();
+                        
+                        const centerX = width / 2;
+                        const centerY = (height / 2) + 30; 
+
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'middle';
+                        ctx.fillStyle = palette.dark; // Use light color for text
+                        
+                        // Percentage
+                        ctx.font = 'bolder 40px "Inter"';
+                        ctx.fillText(`${complianceData}%`, centerX, centerY - 20);
+
+                        // Label
+                        ctx.font = '500 16px "Inter"';
+                        ctx.fillStyle = palette.dark;
+                        ctx.fillText('Automated Controls', centerX, centerY + 20);
+                        
+                        ctx.restore();
+                    }
+                };
+
+                new Chart(document.getElementById('complianceGaugeChart'), {
+                    type: 'doughnut',
+                    data: gaugeData,
+                    options: {
+                        ...chartDefaultOptions,
+                        plugins: {
+                            ...chartDefaultOptions.plugins,
+                            legend: { display: false },
+                            tooltip: { enabled: false }
+                        }
+                    },
+                    plugins: [gaugeText]
+                });
+            }
+
+            // ------------------------------------------------
+            // 6. Delivery Predictability Chart (Bar + Scatter Mix)
+            // ------------------------------------------------
+            const deliveryData = {
+                labels: [
+                    ['CD Funding', 'Platform API'],
+                    'ACH Modernization',
+                    ['Instant', 'Verification Flow'],
+                    ['Loan Origination', 'Redesign'],
+                    ['Ext. Acct Linking', '(Ph. 2 - 2 Sprints)'],
+                    ['Ext. Acct Linking', '(Ph. 3 - 2 Sprints)']
+                ],
+                datasets: [{
+                    label: 'Planned Scope (Points)',
+                    data: [70, 55, 35, 80, 25, 25], 
+                    backgroundColor: palette.orange,
+                    borderColor: palette.orange,
+                    type: 'line',
+                    tension: 0,
+                    fill: false,
+                    pointRadius: 5,
+                    pointBackgroundColor: palette.orange,
+                    pointHoverRadius: 7
+                }, {
+                    label: 'Delivered Scope (Points)',
+                    data: [70, 58, 35, 78, 25, 25], 
+                    backgroundColor: palette.blue,
+                    borderColor: palette.blue,
+                    pointBackgroundColor: palette.blue,
+                    type: 'scatter', 
+                    pointRadius: 7,
+                    pointStyle: 'crossRot', 
+                    rotation: 45,
+                    borderWidth: 2,
+                    pointHoverRadius: 9
+                }]
+            };
+
+            if (document.getElementById('deliveryPredictabilityChart')) {
+                new Chart(document.getElementById('deliveryPredictabilityChart'), {
+                    type: 'bar', 
+                    data: deliveryData,
+                    options: {
+                        ...chartDefaultOptions,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Scope (Estimated Points)',
+                                    color: palette.dark
+                                },
+                                grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                            },
+                            x: {
+                                grid: { display: false },
+                                ticks: { color: palette.dark }
+                            }
+                        },
+                        plugins: {
+                            ...chartDefaultOptions.plugins,
+                            tooltip: {
+                                ...chartDefaultOptions.plugins.tooltip,
+                                callbacks: {
+                                    ...chartDefaultOptions.plugins.tooltip.callbacks,
+                                    title: tooltipTitleCallback,
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) { label += ': '; }
+                                        
+                                        let value = context.parsed.y;
+                                        let plannedValue = deliveryData.datasets[0].data[context.dataIndex];
+                                        let deliveredValue = deliveryData.datasets[1].data[context.dataIndex];
+
+                                        if (context.datasetIndex === 1) { 
+                                            let difference = deliveredValue - plannedValue;
+                                            let sign = difference > 0 ? '+' : '';
+                                            let deviationText = difference !== 0 ? ` (${sign}${difference} Points Deviation)` : ' (On Target)';
+                                            label += `${value} Points` + deviationText;
+                                        } else { 
+                                            label += `${value} Points (Baseline)`;
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+        });
+    </script>
 </body>
 </html>
