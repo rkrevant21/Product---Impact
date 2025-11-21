@@ -7,23 +7,20 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <style>
+<style>
         /* --- DARK MODE BASE STYLES --- */
         body {
-            /* Dark Background */
             font-family: 'Inter', sans-serif;
-            background-color: #1f2937; /* Tailwind Gray-800 equivalent for base */
-            color: #f3f4f6; /* Tailwind Gray-100 for text */
+            background-color: #1f2937;
+            color: #f3f4f6; 
         }
         .stat-card {
-            /* Slightly lighter card background */
             background-color: #374151; 
             border-radius: 0.75rem;
             padding: 2rem;
-            /* Removed shadow for cleaner dark mode look */
             box-shadow: none; 
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+            border: 1px solid rgba(255, 255, 255, 0.1); 
         }
         .stat-card:hover {
             box-shadow: 0 0 20px rgba(0, 174, 239, 0.2);
@@ -38,31 +35,40 @@
             content: '';
             position: absolute;
             top: 0;
-            left: 15px; /* Adjust position relative to content */
+            /* FIX: Ensure the line is inside the content area (clears 16px padding on mobile) */
+            left: 20px; 
             width: 2px;
             height: 100%;
-            background: #4b5563; /* Dark gray line */
+            background: #4b5563;
             z-index: 10;
         }
         .timeline-section {
             position: relative;
-            padding-left: 50px; /* Space for the line and dot */
+            /* FIX: Ensure padding is wide enough for the dot and line */
+            padding-left: 55px; 
             margin-bottom: 3rem;
+            transition: all 0.3s ease; 
+        }
+        .timeline-section:hover {
+            box-shadow: 0 0 10px rgba(0, 174, 239, 0.3); 
         }
         .timeline-section::before {
             content: '';
             position: absolute;
             top: 10px;
-            left: 10px;
+            /* FIX: Center dot (15px wide) over the line (at 20px left) -> 20 - 7.5 = 12.5px */
+            left: 12px; 
             width: 15px;
             height: 15px;
-            background: #00AEEF; /* Blue dot marker */
+            background: #00AEEF;
             border-radius: 50%;
-            border: 3px solid #1f2937; /* Match body background */
+            border: 3px solid #1f2937;
             z-index: 20;
+            /* Added accent glow */
+            box-shadow: 0 0 5px #00AEEF; 
         }
         
-        /* --- CHART STYLES --- */
+        /* --- CHART STYLES (Rest unchanged) --- */
         .chart-container {
             position: relative;
             width: 100%;
@@ -79,7 +85,7 @@
             }
         }
         .flow-step {
-            background-color: #374151; /* Match card background */
+            background-color: #374151;
             border: 2px solid #00AEEF;
             border-radius: 0.5rem;
             padding: 0.75rem;
