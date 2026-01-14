@@ -377,7 +377,9 @@
                 }
             };
 
+            // ------------------------------------------------
             // 1. Competencies Radar Chart
+            // ------------------------------------------------
             if (document.getElementById('competenciesChart')) {
                 new Chart(document.getElementById('competenciesChart'), {
                     type: 'radar',
@@ -404,6 +406,7 @@
                         ...chartDefaultOptions,
                         scales: {
                             r: {
+                                // Dark Mode Chart Fixes:
                                 angleLines: { color: 'rgba(255, 255, 255, 0.15)' }, 
                                 grid: { color: 'rgba(255, 255, 255, 0.15)' }, 
                                 pointLabels: {
@@ -411,7 +414,7 @@
                                     color: palette.dark 
                                 },
                                 ticks: {
-                                    backdropColor: 'rgba(55, 65, 81, 0.9)', 
+                                    backdropColor: 'rgba(55, 65, 81, 0.9)', // Match card background
                                     color: palette.dark,
                                     stepSize: 1,
                                     max: 10,
@@ -447,7 +450,9 @@
                 }
             };
 
+            // ------------------------------------------------
             // 2. Funding Chart (Doughnut)
+            // ------------------------------------------------
             if (document.getElementById('fundingChart')) {
                 new Chart(document.getElementById('fundingChart'), {
                     type: 'doughnut',
@@ -470,17 +475,21 @@
             const barChartScales = {
                 y: {
                     beginAtZero: true,
+                    // Dark Mode Chart Fixes:
                     grid: { color: 'rgba(255, 255, 255, 0.1)' },
                     ticks: { color: palette.dark },
                     title: { display: true, text: 'Points / %', color: palette.dark }
                 },
                 x: {
+                    // Dark Mode Chart Fixes:
                     grid: { display: false },
                     ticks: { color: palette.dark }
                 }
             };
 
+            // ------------------------------------------------
             // 3. Verification Chart (Bar - Onboarding & Fraud)
+            // ------------------------------------------------
             if (document.getElementById('verificationChart')) {
                 new Chart(document.getElementById('verificationChart'), {
                     type: 'bar',
@@ -533,7 +542,9 @@
                 });
             }
 
+            // ------------------------------------------------
             // 4. Complaints Chart (Bar - VOC Impact)
+            // ------------------------------------------------
             if (document.getElementById('complaintsChart')) {
                 new Chart(document.getElementById('complaintsChart'), {
                     type: 'bar',
@@ -578,7 +589,9 @@
                 });
             }
             
+            // ------------------------------------------------
             // 5. Custom Compliance Gauge Chart
+            // ------------------------------------------------
             const complianceData = 95; 
             if (document.getElementById('complianceGaugeChart')) {
                 const gaugeData = {
@@ -604,7 +617,7 @@
 
                         ctx.textAlign = 'center';
                         ctx.textBaseline = 'middle';
-                        ctx.fillStyle = palette.dark; 
+                        ctx.fillStyle = palette.dark; // Use light color for text
                         
                         // Percentage
                         ctx.font = 'bolder 40px "Inter"';
@@ -634,7 +647,9 @@
                 });
             }
 
+            // ------------------------------------------------
             // 6. Delivery Predictability Chart (Bar + Scatter Mix)
+            // ------------------------------------------------
             const deliveryData = {
                 labels: [
                     ['CD Funding', 'Platform API'],
@@ -676,10 +691,53 @@
                     data: deliveryData,
                     options: {
                         ...chartDefaultOptions,
-                        scales: barChartScales
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Scope (Estimated Points)',
+                                    color: palette.dark
+                                },
+                                grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                            },
+                            x: {
+                                grid: { display: false },
+                                ticks: { color: palette.dark }
+                            }
+                        },
+                        plugins: {
+                            ...chartDefaultOptions.plugins,
+                            tooltip: {
+                                ...chartDefaultOptions.plugins.tooltip,
+                                callbacks: {
+                                    ...chartDefaultOptions.plugins.tooltip.callbacks,
+                                    title: tooltipTitleCallback,
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) { label += ': '; }
+                                        
+                                        let value = context.parsed.y;
+                                        let plannedValue = deliveryData.datasets[0].data[context.dataIndex];
+                                        let deliveredValue = deliveryData.datasets[1].data[context.dataIndex];
+
+                                        if (context.datasetIndex === 1) { 
+                                            let difference = deliveredValue - plannedValue;
+                                            let sign = difference > 0 ? '+' : '';
+                                            let deviationText = difference !== 0 ? ` (${sign}${difference} Points Deviation)` : ' (On Target)';
+                                            label += `${value} Points` + deviationText;
+                                        } else { 
+                                            label += `${value} Points (Baseline)`;
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
                     }
                 });
             }
+
         });
     </script>
 </body>
